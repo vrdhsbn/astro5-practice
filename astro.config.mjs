@@ -3,6 +3,8 @@ import compress from 'astro-compress'
 // @ts-check
 import { defineConfig } from 'astro/config'
 
+import tailwind from '@astrojs/tailwind'
+
 // https://astro.build/config
 export default defineConfig({
   server: {
@@ -16,5 +18,5 @@ export default defineConfig({
     inlineStylesheets: 'never',
   },
   compressHTML: false,
-  integrations: [react(), compress({ CSS: false, Image: false, SVG: false })],
+  integrations: [react(), tailwind(), compress({ CSS: false, Image: false, SVG: false })],
 })
