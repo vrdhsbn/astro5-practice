@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content'
+import BlogPostPreview from '@/components/BlogPostPreview.astro'
+import Layout from '@/layouts/Layout.astro'
+const posts = await getCollection('blog')
+---
+
+<Layout title="Blog">
+  <div class="min-h-screen bg-gray-100 px-4 py-12 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <h1 class="neumorphic-text mb-12 text-center text-4xl font-bold text-gray-800">Blog</h1>
+      <div class="space-y-12">
+        {posts.map((post) => <BlogPostPreview props={post} />)}
+      </div>
+    </div>
+  </div>
+</Layout>

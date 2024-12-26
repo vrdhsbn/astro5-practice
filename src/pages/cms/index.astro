@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+const posts = await getCollection('cms')
+---
+
+<Layout title="Articles">
+  <div class="min-h-screen bg-gray-100 px-4 py-12 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-4xl">
+      <h1 class="neumorphic-text mb-12 text-center text-4xl font-bold text-gray-800">Articles</h1>
+      <div class="flex items-start justify-center gap-x-4">
+        {
+          posts.map((post) => (
+            <a href={`/cms/${post.data.id}`} class="block w-[320px]">
+              <article class="neumorphic-card rounded-xl bg-gray-100 p-6 transition duration-300 hover:shadow-lg">
+                {post.data.eyecatch && (
+                  <div class="mb-2">
+                    <img src={post.data.eyecatch.url} alt="" class="w-full" />
+                  </div>
+                )}
+                <h2 class="mb-2 text-xl font-bold text-gray-800">{post.data.title}</h2>
+              </article>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>

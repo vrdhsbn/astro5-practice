@@ -2,8 +2,13 @@
 import Layout from '@/layouts/Layout.astro'
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <p>hello</p>
+<Layout title="Astro Content Layer Demo">
+  <main class="min-h-screen bg-gray-100 px-4 py-12">
+    <h1 class="neumorphic-text mb-4 text-4xl font-bold text-gray-800">Astro Content Layer Demo</h1>
+    <ul>
+      <li><a href="/blog/" class="underline">Blog</a>（MDファイルからコンテンツを生成）</li>
+      <li><a href="/posts/" class="underline">Posts</a>（外部APIからコンテンツを生成）</li>
+      <li><a href="/cms/" class="underline">Articles</a>（microCMSからコンテンツを生成）</li>
+    </ul>
   </main>
 </Layout>
